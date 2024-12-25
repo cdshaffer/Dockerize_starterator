@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
     clustalw \
     clustalo \
     vim \
+    curl \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /ris_mysql/mysql.conf.d \
     && chmod 0777 /ris_mysql/mysql.conf.d
@@ -46,7 +47,8 @@ RUN git clone -b dockerization https://github.com/cdshaffer/starterator.git .
 RUN git pull origin dockerization
 
 # Copy the database file into the container
-# COPY Actino_Draft.sql /docker-entrypoint-initdb.d/
+RUN curl http://databases.hatfull.org/Actino_Draft/Actino_Draft.version -o Actino_Draft.sql
+COPY Actino_Draft.sql /docker-entrypoint-initdb.d/
 
 # Make the starterator.sh script executable
 RUN chmod +x starterator.sh
