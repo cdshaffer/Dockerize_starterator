@@ -47,7 +47,7 @@ RUN git clone -b dockerization https://github.com/cdshaffer/starterator.git .
 RUN git pull origin dockerization
 
 # Copy the database file into the container
-RUN curl http://databases.hatfull.org/Actino_Draft/Actino_Draft.version -o Actino_draft.sql
+RUN curl http://databases.hatfull.org/Actino_Draft/Actino_Draft.sql -o Actino_Draft.sql
 COPY Actino_Draft.sql /docker-entrypoint-initdb.d/
 
 # Make the starterator.sh script executable
