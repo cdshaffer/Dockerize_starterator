@@ -41,10 +41,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 # Clone the specific branch of the starterator repository from your GitHub account
-RUN git clone -b dockerization https://github.com/cdshaffer/starterator.git .
+RUN git clone -b LSF https://github.com/cdshaffer/starterator.git .
 
 # Ensure the latest commit is pulled during each build
-RUN git pull origin dockerization
+RUN git pull origin LSF
 
 # Copy the database file into the container
 # RUN curl http://databases.hatfull.org/Actino_Draft/Actino_Draft.sql -o Actino_Draft.sql
